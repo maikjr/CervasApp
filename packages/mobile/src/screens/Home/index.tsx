@@ -16,7 +16,7 @@ import {
   LocalName
 } from './styles'
 
-import Discount from '../../components/Discount'
+import DiscountLoading from '../../components/DiscountLoading'
 import ButtonAction from '../../components/ButtonAction'
 
 export default function Home () {
@@ -43,10 +43,10 @@ export default function Home () {
           </TitleSection>
 
           <ListDiscount>
-            <Discount />
-            <Discount />
-            <Discount />
-            <Discount />
+            <DiscountLoading />
+            <DiscountLoading />
+            <DiscountLoading />
+            <DiscountLoading />
           </ListDiscount>
         </Content>
       </Container>
