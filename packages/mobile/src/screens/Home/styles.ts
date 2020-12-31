@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import RBSheet from 'react-native-raw-bottom-sheet';
 import { colors, fonts } from '../../assets/styles'
 
 export const Container = styled.ScrollView`
@@ -54,11 +55,28 @@ export const LocalButton = styled.TouchableOpacity`
   justify-content: space-between;
   align-items: center;
   background-color: ${colors.bgButtons};
-  padding: 5px 15px;
-  width: 120px;
+  padding: 5px 12px;
   border-radius: 20px;
 `
-export const LocalName = styled.Text`
+export const LocalName = styled.Text.attrs({
+  numberOfLines: 1
+})`
   font-family: ${fonts.fontRegular};
   color: ${colors.lighter};
+  margin-left: 5px;
 `
+export const BottomSheet = styled(RBSheet).attrs({
+  customStyles: {
+    container: {
+      backgroundColor: '#fff',
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      paddingVertical: 10,
+    },
+    wrapper: {
+    },
+    draggableIcon: {
+      backgroundColor: '#ccc',
+    },
+  },
+})``;
