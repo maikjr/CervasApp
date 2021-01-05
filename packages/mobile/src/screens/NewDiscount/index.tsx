@@ -22,13 +22,7 @@ const NewDiscount = () => {
       <Content>
         <TitlePage>Novo Desconto</TitlePage>
         <Section>
-          <Label>marca da cerveja</Label>
-          <SelectOption>
-            <SelectOptionText>Selecionar...</SelectOptionText>
-          </SelectOption>
-        </Section>
-        <Section>
-          <Label>embalagem da cerveja</Label>
+          <Label>Cerveja</Label>
           <SelectOption>
             <SelectOptionText>Selecionar...</SelectOptionText>
           </SelectOption>

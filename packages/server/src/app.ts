@@ -1,14 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import routes from './routes';
+import {router} from './routes';
 
 const app = express();
-
+app.use(express.json());
 app.use(helmet());
 app.use(cors());
-app.use(routes);
+app.use(router);
 
-app.listen(3333, () => {
-  console.log('server running');
-})
+export {app}

@@ -1,9 +1,13 @@
-import express from 'express';
+import {Router } from 'express';
+import {createDiscountController} from './useCases/CreateDiscount'
+const router = Router();
 
-const routes = express.Router();
-
-routes.get('/', (request, response) => {
-  return response.json({message: 'Olá!'});
+router.get('/', (request, response) => {
+  return response.status(201).json({message: 'Olá!'});
 })
 
-export default routes;
+router.post('/discounts', (request, response) => {
+  return createDiscountController.handle(request, response);
+})
+
+export {router};
