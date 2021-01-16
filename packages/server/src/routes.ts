@@ -1,5 +1,6 @@
 import {Router } from 'express';
 import {createDiscountController} from './useCases/CreateDiscount'
+import {createBeerController} from './useCases/CreateBeer'
 const router = Router();
 
 router.get('/', (request, response) => {
@@ -8,6 +9,10 @@ router.get('/', (request, response) => {
 
 router.post('/discounts', (request, response) => {
   return createDiscountController.handle(request, response);
+})
+
+router.post('/beers', (request, response) => {
+  return createBeerController.handle(request, response);
 })
 
 export {router};
