@@ -1,19 +1,19 @@
 import { mongoose } from '../../database/mongodb';
+import {PointSchema} from './utils/MongoPoint';
 
 const DiscountsSchema = new mongoose.Schema({
+  id: {
+    type: String,
+    required: true,
+  },
   beer: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Beers',
     required: true,
   },
-  id: {
-    type: String,
-    required: true,
-  },
   location: {
-    type: "Point",
-    coordinates: [Number],
-    required: true,
+    type: PointSchema,
+    index: '2dsphere'
   },
   price: {
     type: Number,
@@ -23,6 +23,6 @@ const DiscountsSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-DiscountsSchema.index({location: '2dsphere'});
+const DiscountModel = mongoose.model('Discounts', DiscountsSchema);
 
-module.exports = mongoose.model('Discounts', DiscountsSchema);
+export {DiscountModel}

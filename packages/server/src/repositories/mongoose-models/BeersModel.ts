@@ -5,8 +5,14 @@ const BeersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  id: {
+    type: String,
+    required: true,
+  },
 }, {
   timestamps: true,
 });
 
-module.exports = mongoose.model('Beers', BeersSchema);
+const BeerModel = mongoose.model('Beers', BeersSchema);
+
+export {BeerModel}

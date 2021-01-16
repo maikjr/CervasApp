@@ -22,7 +22,7 @@ const NewDiscount = () => {
       <Content>
         <TitlePage>Novo Desconto</TitlePage>
         <Section>
-          <Label>Cerveja</Label>
+          <Label>cerveja</Label>
           <SelectOption>
             <SelectOptionText>Selecionar...</SelectOptionText>
           </SelectOption>
