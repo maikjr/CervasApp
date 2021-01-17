@@ -5,7 +5,7 @@ export class Discount {
   public readonly id: string;
 
   public beer: string;
-  public coordinates: string[];
+  public coordinates: number[];
   public price: string;
 
   constructor(props: Omit<Discount, 'id'>, id?: string) {
