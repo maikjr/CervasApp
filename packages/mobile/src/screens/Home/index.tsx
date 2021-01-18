@@ -20,6 +20,7 @@ import {
 import DiscountLoading from '../../components/DiscountLoading'
 import ButtonAction from '../../components/ButtonAction'
 import ChangeLocal from '../../components/ChangeLocal'
+import WhatLocation from '../../components/WhatLocation'
 
 type Location = {
   latitude: string,
@@ -57,6 +58,9 @@ export default function Home () {
           </SearchContainer>
         </Header>
 
+      {!getLocation ? (
+        <WhatLocation />
+      ) : (
         <Content>
           <TitleSection>
             <TitleSectionText>Descontos 🔥</TitleSectionText>
@@ -68,11 +72,9 @@ export default function Home () {
 
           <ListDiscount>
             <DiscountLoading />
-            <DiscountLoading />
-            <DiscountLoading />
-            <DiscountLoading />
           </ListDiscount>
         </Content>
+      )}
       </Container>
       <ButtonAction label="colabore conosco">Criar desconto</ButtonAction>
         <BottomSheet

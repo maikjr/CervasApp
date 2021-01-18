@@ -70,10 +70,16 @@ const ChangeLocal: React.FC = ({onLocationSelected}) => {
           color: "#444",
           fontFamily: fonts.fontRegular,
         },
+        separator:{
+          height: 0,
+          backgroundColor: '#fff'
+        },
         row: {
-          paddingVertical: 20,
-          paddingLeft: 0,
-          height: 58,
+          paddingVertical: 15,
+          paddingHorizontal: 0,
+          height: 55,
+          borderBottomColor: '#f2f2f2',
+          borderBottomWidth: 1,
         }
       }}
     />
