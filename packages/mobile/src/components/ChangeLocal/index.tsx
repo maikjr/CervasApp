@@ -6,6 +6,8 @@ import {GOOGLE_API_KEY} from '@env'
 
 import {fonts} from '../../assets/styles';
 
+navigator.geolocation = require('@react-native-community/geolocation');
+
 import {
   Container,
 } from './styles';
@@ -16,6 +18,8 @@ const ChangeLocal: React.FC = ({onLocationSelected}) => {
       <GooglePlacesAutocomplete
       placeholder='Pesquisar cidade'
       placeholderTextColor="#222"
+      currentLocation={true}
+      currentLocationLabel='Usar minha localização'
       onPress={onLocationSelected}
       query={{
         key: GOOGLE_API_KEY,
