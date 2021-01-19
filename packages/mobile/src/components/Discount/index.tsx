@@ -14,17 +14,18 @@ import {
   DiscountIcon
 } from './styles'
 
-const Discount: FC = () => {
+const Discount: FC = ({discount}) => {
+  const {address, name, units, price} = discount;
   return (
     <DiscountContainer>
       <DiscountLeft>
-        <DiscountPlace>hiper bom preço</DiscountPlace>
+        <DiscountPlace>{address}</DiscountPlace>
         <DiscountTitle>
-          Heineken Long Neck <DiscountMl>- 330ml</DiscountMl>
+          {name} <DiscountMl>- {units}</DiscountMl>
         </DiscountTitle>
         <DiscountFooter>
           <DiscountPrice>
-            <DiscountPriceText>R$ 3,27</DiscountPriceText>
+            <DiscountPriceText>R$ {price}</DiscountPriceText>
           </DiscountPrice>
           <DiscountIcon>
             <Icon name="navigation" size={22} color={colors.regular} />

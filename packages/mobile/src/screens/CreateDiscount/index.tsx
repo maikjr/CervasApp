@@ -15,7 +15,7 @@ import {
   SectionPriceInput
 } from './styles'
 
-const NewDiscount = () => {
+const CreateDiscount = () => {
   return (
     <Container>
       <Header />
@@ -45,4 +45,4 @@ const NewDiscount = () => {
   )
 }
 
-export default NewDiscount
+export default CreateDiscount

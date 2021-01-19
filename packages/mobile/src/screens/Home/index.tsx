@@ -1,5 +1,6 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import Icon from 'react-native-vector-icons/Feather'
+import api from '@cervasapp/axios-config'
 
 import {
   Container,
@@ -17,6 +18,7 @@ import {
   BottomSheet
 } from './styles'
 
+import Discount from '../../components/Discount'
 import DiscountLoading from '../../components/DiscountLoading'
 import ButtonAction from '../../components/ButtonAction'
 import ChangeLocal from '../../components/ChangeLocal'
@@ -31,19 +33,48 @@ type Location = {
 export default function Home () {
   const refRBSheet = useRef();
 
+  const [getLoadingScreen, setLoadingScreen] = useState(false);
   const [getLocation, setLocation] = useState<Location>();
+  const [getDiscounts, setDiscounts] = useState([]);
 
   const handleLocationSelected = (data, { geometry }) => {
     const {
       location: { lat: latitude, lng: longitude }
     } = geometry;
+
     setLocation({
       latitude,
       longitude,
       title: data.structured_formatting.main_text
     })
-    refRBSheet.current.close()
+    refRBSheet.current.close();
   }
+
+
+  const searchDiscounts = async () => {
+    setLoadingScreen(true);
+    try{
+      const {longitude, latitude} = getLocation;
+
+      const response = await api.post("/search", {
+        longitude,
+        latitude,
+      });
+      const {discounts} = response.data;
+      setDiscounts(discounts);
+      setLoadingScreen(false);
+    }catch(err){
+      alert(JSON.stringify(err));
+    }
+  }
+
+  useEffect(() => {
+    if(getLocation){
+      searchDiscounts()
+    }
+  }, [getLocation])
+
+
 
   return (
     <>
@@ -59,7 +90,7 @@ export default function Home () {
         </Header>
 
       {!getLocation ? (
-        <WhatLocation />
+        <WhatLocation changeLocation={() => refRBSheet.current.open()}/>
       ) : (
         <Content>
           <TitleSection>
@@ -70,9 +101,23 @@ export default function Home () {
             </LocalButton>
           </TitleSection>
 
-          <ListDiscount>
-            <DiscountLoading />
-          </ListDiscount>
+
+            {getLoadingScreen ? (
+              <ListDiscount>
+                <DiscountLoading />
+                <DiscountLoading />
+                <DiscountLoading />
+                <DiscountLoading />
+              </ListDiscount>
+            ) : (
+              <ListDiscount>
+                {getDiscounts.map(discount =>
+                  <Discount key={discount.id} discount={discount} />
+                )}
+              </ListDiscount>
+            )}
+
+
         </Content>
       )}
       </Container>
