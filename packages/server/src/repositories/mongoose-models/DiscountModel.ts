@@ -15,6 +15,14 @@ const DiscountsSchema = new mongoose.Schema({
     type: PointSchema,
     index: '2dsphere'
   },
+  address: {
+    type: String,
+    required: true,
+  },
+  establishment: {
+    type: String,
+    required: true,
+  },
   price: {
     type: Number,
     required: true,

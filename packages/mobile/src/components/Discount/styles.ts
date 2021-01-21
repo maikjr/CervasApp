@@ -1,14 +1,14 @@
 import styled from 'styled-components/native'
 import { colors, fonts } from '../../assets/styles'
 
-export const DiscountContainer = styled.View`
+export const DiscountContainer = styled.TouchableOpacity`
   flex: 1;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-bottom-width: 1px;
   border-bottom-color: #f2f2f2;
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 20px;
 `
 export const DiscountLeft = styled.View`

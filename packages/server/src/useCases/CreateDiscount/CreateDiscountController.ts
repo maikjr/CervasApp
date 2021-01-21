@@ -7,12 +7,14 @@ export class CreateDiscountController{
   ){}
 
   async handle(request: Request, response: Response): Promise<Response>{
-    const{beer, coordinates, price } = request.body;
+    const{beer, coordinates, price, establishment, address } = request.body;
     try{
       await this.createDiscountUseCase.execute({
         beer,
         coordinates,
-        price
+        price,
+        establishment,
+        address
       });
       return response.status(201).send();
     }catch(err){

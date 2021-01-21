@@ -1,10 +1,12 @@
 import React, { FC } from 'react'
 import Icon from 'react-native-vector-icons/Feather'
-import { useNavigation } from '@react-navigation/native';
 import { colors } from '../../assets/styles'
 
 import {
   DiscountContainer,
+} from './styles'
+
+import {
   DiscountLeft,
   DiscountPlace,
   DiscountTitle,
@@ -13,7 +15,7 @@ import {
   DiscountPrice,
   DiscountPriceText,
   DiscountIcon
-} from './styles'
+} from '../Discount/styles'
 
 type IDiscount = {
   discount: {
@@ -29,16 +31,14 @@ type IDiscount = {
 }
 
 const Discount: FC<IDiscount> = ({discount}) => {
-  const navigation = useNavigation();
-  const {address, beer,  price} = discount;
+  const {beer,  price} = discount;
 
   const splitBeer = beer.name.split('-');
+
   return (
-    <DiscountContainer onPress={() => navigation.navigate('Details', {
-      discount
-    })}>
+    <DiscountContainer>
       <DiscountLeft>
-        <DiscountPlace>{address}</DiscountPlace>
+        <DiscountPlace>Postado há 5 minutos</DiscountPlace>
         <DiscountTitle>
           {splitBeer[0]} <DiscountMl>- {splitBeer[1]}</DiscountMl>
         </DiscountTitle>
@@ -54,7 +54,6 @@ const Discount: FC<IDiscount> = ({discount}) => {
           </DiscountIcon>
         </DiscountFooter>
       </DiscountLeft>
-      <Icon name="arrow-right" size={28} color={colors.regular} />
     </DiscountContainer>
   )
 }

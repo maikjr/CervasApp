@@ -14,11 +14,11 @@ const Stack = createStackNavigator();
 const home = () => (
   <NavigationContainer>
     <StatusBar backgroundColor="#F9CF80" barStyle={'dark-content'} />
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Details" component={Details} />
-      <Stack.Screen name="Search" component={Search} />
-      <Stack.Screen name="CreateDiscount" component={CreateDiscount} />
+    <Stack.Navigator initialRouteName="Home" >
+      <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
+      <Stack.Screen name="Details" component={Details} options={{ headerShown: false }}/>
+      <Stack.Screen name="Search" component={Search} options={{ headerShown: false }}/>
+      <Stack.Screen name="CreateDiscount" component={CreateDiscount} options={{ headerShown: false }}/>
     </Stack.Navigator>
   </NavigationContainer>
 )

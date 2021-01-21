@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import Icon from 'react-native-vector-icons/Feather'
+import { useNavigation } from '@react-navigation/native';
 import { colors } from '../../assets/styles'
 
 import {
@@ -15,9 +16,10 @@ type HeaderType = {
 }
 
 const Header: FC<HeaderType> = ({ searchable }) => {
+  const navigation = useNavigation();
   return (
     <Container>
-      <ButtonBack>
+      <ButtonBack onPress={() => navigation.goBack()}>
         <Icon name="arrow-left" size={28} color={colors.darker} />
       </ButtonBack>
       {searchable && (

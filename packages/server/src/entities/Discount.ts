@@ -7,6 +7,8 @@ export class Discount {
   public beer: string;
   public coordinates: number[];
   public price: string;
+  public establishment: string;
+  public address: string;
 
   constructor(props: Omit<Discount, 'id'>, id?: string) {
     Object.assign(this, props);

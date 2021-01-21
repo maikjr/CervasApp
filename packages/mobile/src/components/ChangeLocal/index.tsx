@@ -19,7 +19,8 @@ const ChangeLocal: React.FC = ({onLocationSelected}) => {
       placeholder='Pesquisar cidade'
       placeholderTextColor="#222"
       currentLocation={true}
-      filterReverseGeocodingByTypes={['locality', 'administrative_area_level_3']}
+      enableHighAccuracyLocation={true}
+      filterReverseGeocodingByTypes={['locality']}
       currentLocationLabel='Usar minha localização'
       onPress={onLocationSelected}
       query={{

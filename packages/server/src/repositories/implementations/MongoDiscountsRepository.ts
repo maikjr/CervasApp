@@ -4,7 +4,7 @@ import {DiscountModel} from '../mongoose-models/DiscountModel';
 
 export class MongoDiscountsRepository implements IDiscountsRepository{
   async save(discount: Discount): Promise<void>{
-    const {beer, coordinates, price, id} = discount;
+    const {beer, coordinates, price, id, establishment, address} = discount;
     await DiscountModel.create({
       id,
       beer,
@@ -12,6 +12,8 @@ export class MongoDiscountsRepository implements IDiscountsRepository{
         type: 'Point',
         coordinates,
       },
+      establishment,
+      address,
       price
     });
   }
@@ -29,7 +31,7 @@ export class MongoDiscountsRepository implements IDiscountsRepository{
             }
         }
     })
-    .select('beer price')
+    .select('beer price establishment address')
     .populate({path: 'beer', select: 'name'});
 
     return discounts;

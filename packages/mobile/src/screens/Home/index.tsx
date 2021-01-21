@@ -30,7 +30,7 @@ type Location = {
   title: string,
 }
 
-export default function Home () {
+export default function Home ({navigation}) {
   const refRBSheet = useRef();
 
   const [getLoadingScreen, setLoadingScreen] = useState(false);
@@ -112,7 +112,7 @@ export default function Home () {
             ) : (
               <ListDiscount>
                 {getDiscounts.map(discount =>
-                  <Discount key={discount.id} discount={discount} />
+                  <Discount key={discount.id} discount={discount} onPress={() => navigation.navigate('Details')} />
                 )}
               </ListDiscount>
             )}
@@ -121,17 +121,17 @@ export default function Home () {
         </Content>
       )}
       </Container>
-      <ButtonAction label="colabore conosco">Criar desconto</ButtonAction>
-        <BottomSheet
-          ref={refRBSheet}
-          animationType="slide"
-          height={600}
-          openDuration={250}
-          closeOnDragDown
-          closeOnPressMask
-        >
-          <ChangeLocal onLocationSelected={handleLocationSelected} />
-        </BottomSheet>
+      <ButtonAction label="colabore conosco" onPress={() => navigation.navigate('CreateDiscount')}>Criar desconto</ButtonAction>
+      <BottomSheet
+        ref={refRBSheet}
+        animationType="slide"
+        height={600}
+        openDuration={250}
+        closeOnDragDown
+        closeOnPressMask
+      >
+        <ChangeLocal onLocationSelected={handleLocationSelected} />
+      </BottomSheet>
     </>
   )
 }

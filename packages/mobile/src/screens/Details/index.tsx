@@ -3,24 +3,23 @@ import React from 'react'
 import { Container, Content } from './styles'
 
 import Header from '../../components/Header'
-import Discount from '../../components/Discount'
+import DetailsDiscount from '../../components/DetailsDiscount'
 import PlaceDetail from '../../components/PlaceDetails'
+import PlaceLoading from '../../components/PlaceLoading'
 import ButtonAction from '../../components/ButtonAction'
 
-const Details = () => {
+const Details = ({route}) => {
+  const { discount } = route.params;
   return (
     <>
       <Container>
         <Header />
         <Content>
-          <Discount />
-          <PlaceDetail selected />
-          <PlaceDetail />
-          <PlaceDetail />
-          <PlaceDetail />
-          <PlaceDetail />
-          <PlaceDetail />
-          <PlaceDetail />
+          <DetailsDiscount discount={discount} />
+          <PlaceDetail discount={discount} selected />
+          <PlaceLoading discount={discount} />
+          <PlaceLoading discount={discount} />
+          <PlaceLoading discount={discount} />
         </Content>
       </Container>
       <ButtonAction label="colabore conosco">Sugerir novo preço</ButtonAction>

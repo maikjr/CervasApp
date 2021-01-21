@@ -13,25 +13,34 @@ import {
 } from './styles'
 
 type PlaceDetails = {
-  selected: boolean
+  selected: boolean;
+  discount: {
+    address: string;
+    beer: {
+      name: string;
+    }
+    name: string;
+    units: string;
+    price: number;
+    establishment: string;
+  }
 }
 
-const PlaceDetails: FC<PlaceDetails> = ({ selected }) => {
+const PlaceDetails: FC<PlaceDetails> = ({ selected, discount }) => {
+  const {address, establishment} = discount;
+
   return (
     <Container selected={selected}>
       {selected && <PlaceLabel>Estabelecimento</PlaceLabel>}
-      <PlaceName>Hiper Bom Preço</PlaceName>
+      <PlaceName>{establishment}</PlaceName>
       <PlaceAddress>
-        Av. Gonçalo Prado Rolemberg, 1540 - São José, Aracaju - SE
+        {address}
       </PlaceAddress>
       {!selected && (
         <DiscountFooter>
           <DiscountPrice>
             <DiscountPriceText>R$ 3,27</DiscountPriceText>
           </DiscountPrice>
-          <DiscountIcon>
-            <Icon name="navigation" size={22} color={colors.regular} />
-          </DiscountIcon>
           <DiscountIcon>
             <Icon name="alert-triangle" size={22} color={colors.regular} />
           </DiscountIcon>

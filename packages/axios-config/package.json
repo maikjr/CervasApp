@@ -1,0 +1,12 @@
+{
+  "name": "@cervasapp/axios-config",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0"
+  }
+}
