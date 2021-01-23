@@ -5,7 +5,12 @@ export interface ISearch {
   coordinates: string[];
 }
 
+export interface IRelated {
+  id: string;
+}
+
 export interface IDiscountsRepository{
   save(discount: Discount): Promise<void>;
   search(search: ISearch): Promise<Discount[]>;
+  related(related: IRelated): Promise<Discount[]>;
 }

@@ -61,6 +61,7 @@ export default function Home ({navigation}) {
         latitude,
       });
       const {discounts} = response.data;
+
       setDiscounts(discounts);
       setLoadingScreen(false);
     }catch(err){
@@ -73,8 +74,6 @@ export default function Home ({navigation}) {
       searchDiscounts()
     }
   }, [getLocation])
-
-
 
   return (
     <>

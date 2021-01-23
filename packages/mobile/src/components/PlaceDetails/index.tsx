@@ -13,7 +13,7 @@ import {
 } from './styles'
 
 type PlaceDetails = {
-  selected: boolean;
+  selected?: boolean;
   discount: {
     address: string;
     beer: {
@@ -27,7 +27,7 @@ type PlaceDetails = {
 }
 
 const PlaceDetails: FC<PlaceDetails> = ({ selected, discount }) => {
-  const {address, establishment} = discount;
+  const {address, establishment, price} = discount;
 
   return (
     <Container selected={selected}>
@@ -39,7 +39,7 @@ const PlaceDetails: FC<PlaceDetails> = ({ selected, discount }) => {
       {!selected && (
         <DiscountFooter>
           <DiscountPrice>
-            <DiscountPriceText>R$ 3,27</DiscountPriceText>
+            <DiscountPriceText>R$ {price}</DiscountPriceText>
           </DiscountPrice>
           <DiscountIcon>
             <Icon name="alert-triangle" size={22} color={colors.regular} />

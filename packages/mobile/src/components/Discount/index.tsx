@@ -30,7 +30,7 @@ type IDiscount = {
 
 const Discount: FC<IDiscount> = ({discount}) => {
   const navigation = useNavigation();
-  const {address, beer,  price} = discount;
+  const {establishment, beer,  price, address} = discount;
 
   const splitBeer = beer.name.split('-');
   return (
@@ -38,7 +38,7 @@ const Discount: FC<IDiscount> = ({discount}) => {
       discount
     })}>
       <DiscountLeft>
-        <DiscountPlace>{address}</DiscountPlace>
+        <DiscountPlace>{establishment} - {address}</DiscountPlace>
         <DiscountTitle>
           {splitBeer[0]} <DiscountMl>- {splitBeer[1]}</DiscountMl>
         </DiscountTitle>

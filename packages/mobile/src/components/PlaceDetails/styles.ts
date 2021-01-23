@@ -26,7 +26,7 @@ export const PlaceAddress = styled.Text`
   font-size: 16px;
   letter-spacing: 1.3px;
   color: ${colors.darker};
-  margin-top: 5px;
+  margin-top: 2px;
 `
 export const DiscountFooter = styled.View`
   flex: 1;

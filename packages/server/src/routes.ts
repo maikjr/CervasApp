@@ -3,6 +3,7 @@ import {createDiscountController} from './useCases/CreateDiscount'
 import {createBeerController} from './useCases/CreateBeer'
 import {getAllBeersController} from './useCases/GetAllBeers'
 import {searchDiscountController} from './useCases/SearchDiscount'
+import {discountsRelatedController} from './useCases/DiscountsRelated'
 const router = Router();
 
 router.get('/', (request, response) => {
@@ -14,6 +15,9 @@ router.post('/search', (request, response) => {
 })
 router.post('/discounts', (request, response) => {
   return createDiscountController.handle(request, response);
+})
+router.get('/related/:id', (request, response) => {
+  return discountsRelatedController.handle(request, response);
 })
 
 router.get('/beers', (request, response) => {

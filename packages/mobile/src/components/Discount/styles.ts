@@ -14,7 +14,9 @@ export const DiscountContainer = styled.TouchableOpacity`
 export const DiscountLeft = styled.View`
   flex: 1;
 `
-export const DiscountPlace = styled.Text`
+export const DiscountPlace = styled.Text.attrs({
+  numberOfLines: 1,
+})`
   font-family: ${fonts.fontRegular};
   font-size: 14px;
   letter-spacing: 1.3px;
