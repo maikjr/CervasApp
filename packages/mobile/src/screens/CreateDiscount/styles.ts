@@ -1,4 +1,10 @@
 import styled from 'styled-components/native'
+import RBSheet from 'react-native-raw-bottom-sheet';
+import LinearGradient from 'react-native-linear-gradient';
+import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder';
+
+const ShimmerPlaceHolder = createShimmerPlaceholder(LinearGradient);
+
 import { colors, fonts } from '../../assets/styles'
 
 export const Container = styled.ScrollView`
@@ -56,3 +62,22 @@ export const SectionPriceInput = styled.TextInput`
   font-family: ${fonts.fontLight};
   flex: 1;
 `
+export const BottomSheet = styled(RBSheet).attrs({
+  customStyles: {
+    container: {
+      backgroundColor: '#fff',
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      paddingVertical: 10,
+    },
+    wrapper: {
+    },
+    draggableIcon: {
+      backgroundColor: '#ccc',
+    },
+  },
+})``;
+
+export const Loading = styled(ShimmerPlaceHolder)`
+  width: 90%;
+`;
